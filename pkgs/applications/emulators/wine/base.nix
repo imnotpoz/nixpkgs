@@ -58,7 +58,7 @@ stdenv.mkDerivation ((lib.optionalAttrs (buildScript != null) {
   ++ lib.optionals supportFlags.mingwSupport (mingwGccs
     ++ lib.optional stdenv.isDarwin setupHookDarwin);
 
-  buildInputs = toBuildInputs pkgArches (with supportFlags; (pkgs:
+  buildInputs = toBuildInputs pkgArches (pkgs: (with supportFlags;
   [ pkgs.freetype pkgs.perl pkgs.libunwind ]
   ++ lib.optional stdenv.isLinux         pkgs.libcap
   ++ lib.optional stdenv.isDarwin        pkgs.libinotify-kqueue
