@@ -55,6 +55,7 @@ int main(int, const char *argv[]) {
   if (WIFEXITED(status)) {
     if (WEXITSTATUS(status)) {
       fprintf(stderr, "ldconfig exited %d\n", WEXITSTATUS(status));
+      fprintf(stderr, "status: %d\n", status);
       return 1;
     }
   } else {
