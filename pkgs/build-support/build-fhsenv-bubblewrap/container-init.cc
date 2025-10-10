@@ -37,8 +37,8 @@ int main(int, const char *argv[]) {
   char *ldconfig_envp[] = {NULL};
   posix_spawn_file_actions_t child_fd_actions;
   posix_spawn_file_actions_init(&child_fd_actions);
-  posix_spawn_file_actions_addopen(&child_fd_actions, 1, "/tmp/dumps/container-init.log", O_WRONLY | O_CREAT | O_TRUNC, 0644);
-  posix_spawn_file_actions_adddup2(&child_fd_actions, 1, 2);
+  posix_spawn_file_actions_addopen(&child_fd_actions, 2, "/tmp/dumps/container-init.log", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+  // posix_spawn_file_actions_adddup2(&child_fd_actions, 1, 2);
   if ((e = posix_spawn(&pid, ldconfig_argv[0], &child_fd_actions, NULL,
                        (char *const *)ldconfig_argv, ldconfig_envp))) {
     fprintf(stderr, "Failed to run ldconfig: %s\n", strerror(e));
