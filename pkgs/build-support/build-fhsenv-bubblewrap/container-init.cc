@@ -49,7 +49,7 @@ int main(int, const char *argv[]) {
   system("/bin/ldconfig");
   system("ls -l /");
   system("ls -l /etc");
-  system("file $(readlink /usr/bin/steam)");
+  system("file $(readlink /usr/bin/ldconfig)");
 
   // int status;
   // if (waitpid(pid, &status, 0) == -1) {
