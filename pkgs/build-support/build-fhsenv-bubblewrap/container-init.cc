@@ -49,7 +49,7 @@ int main(int argc, const char *argv[]) {
   if (WIFEXITED(status)) {
     if (WEXITSTATUS(status)) {
       fprintf(stderr, "ldconfig exited %d\n", WEXITSTATUS(status));
-      // return 1;
+      return 1;
     }
   } else {
     fprintf(stderr, "ldconfig killed by signal %d\n", WTERMSIG(status));
