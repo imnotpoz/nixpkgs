@@ -49,7 +49,6 @@ int main(int argc, const char *argv[]) {
   if (WIFEXITED(status)) {
     if (WEXITSTATUS(status)) {
       fprintf(stderr, "ldconfig exited %d\n", WEXITSTATUS(status));
-      fprintf(stderr, "status: %d\n", status);
       // return 1;
     }
   } else {
@@ -58,9 +57,6 @@ int main(int argc, const char *argv[]) {
   }
 
   argv[0] = "/init";
-  printf("LD_LIBRARY_PATH: %s\n", getenv("LD_LIBRARY_PATH"));
-  // this is correct - /run/opengl-driver/lib
-  // same value I passed using --env to muvm in my alias
   execv(argv[0], (char *const *)argv);
 
   perror("Failed to exec stage 2 init");
