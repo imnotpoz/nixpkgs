@@ -58,8 +58,7 @@ int main(int, const char *argv[]) {
       system("ls -l /");
       system("ls -l /usr");
       system("ls -l /usr/bin");
-      execv("/usr/bin/bash", (char *const []){"/usr/bin/bash"});
-      return 1;
+      // return 1;
     }
   } else {
     fprintf(stderr, "ldconfig killed by signal %d\n", WTERMSIG(status));
@@ -67,6 +66,7 @@ int main(int, const char *argv[]) {
   }
 
   argv[0] = "/init";
+  execv("/usr/bin/bash", (char *const []){"/usr/bin/bash"});
   execv(argv[0], (char *const *)argv);
 
   perror("Failed to exec stage 2 init");
