@@ -57,8 +57,7 @@ int main(int argc, const char *argv[]) {
   }
 
   argv[0] = "/init";
-  // execv(argv[0], (char *const *)argv);
-  execv("/usr/bin/bash", (char *const[]){"/usr/bin/bash"});
+  execv(argv[0], (char *const *)argv);
 
   perror("Failed to exec stage 2 init");
   return 1;

@@ -168,6 +168,7 @@ let
     run:
     writeShellScript "${name}-init" ''
       source /etc/profile
+      exec bash
       exec ${run} "$@"
     '';
 
