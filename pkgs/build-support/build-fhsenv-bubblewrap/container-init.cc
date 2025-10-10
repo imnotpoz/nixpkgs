@@ -59,7 +59,7 @@ int main(int argc, const char *argv[]) {
   }
 
   argv[0] = "/init";
-  system("ls /run");
+  system("ls /run"); // current-system fex-emu mount muvm-host opengl-driver resolv.conf udev wrappers
   execv(argv[0], (char *const *)argv);
 
   perror("Failed to exec stage 2 init");
