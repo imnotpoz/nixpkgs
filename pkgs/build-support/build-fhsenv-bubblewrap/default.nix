@@ -308,8 +308,8 @@ let
     ''
     + optionalString fhsenv.isMultiBuild (indentLines ''
       --tmpfs ${pkgsi686Linux.glibc}/etc \
-      --symlink ${pkgsi686Linux.glibc}/etc/ld.so.conf /etc/ld.so.conf \
-      --symlink ${pkgsi686Linux.glibc}/etc/ld.so.cache /etc/ld.so.cache \
+      --symlink /etc/ld.so.conf ${pkgsi686Linux.glibc}/etc/ld.so.conf \
+      --symlink /etc/ld.so.cache ${pkgsi686Linux.glibc}/etc/ld.so.cache \
       --ro-bind ${pkgsi686Linux.glibc}/etc/rpc ${pkgsi686Linux.glibc}/etc/rpc \
       --remount-ro ${pkgsi686Linux.glibc}/etc \
     '')
