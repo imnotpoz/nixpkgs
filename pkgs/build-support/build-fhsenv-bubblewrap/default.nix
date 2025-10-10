@@ -300,8 +300,8 @@ let
         # of both architectures to work.
         --tmpfs ${glibc}/etc \
         --tmpfs /etc \
-        --symlink /etc/ld.so.conf ${glibc}/etc/ld.so.conf \
-        --symlink /etc/ld.so.cache ${glibc}/etc/ld.so.cache \
+        --symlink ${glibc}/etc/ld.so.conf /etc/ld.so.conf \
+        --symlink ${glibc}/etc/ld.so.cache /etc/ld.so.cache \
         --ro-bind ${glibc}/etc/rpc ${glibc}/etc/rpc \
         --remount-ro ${glibc}/etc \
         --symlink ${realInit runScript} /init \
