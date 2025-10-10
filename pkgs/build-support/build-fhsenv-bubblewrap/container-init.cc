@@ -31,41 +31,41 @@ int main(int, const char *argv[]) {
     return 1;
   }
 
-  // int e;
-  // pid_t pid;
-  // const char *ldconfig_argv[] = {"/bin/ldconfig", NULL};
-  // char *ldconfig_envp[] = {NULL};
-  // posix_spawn_file_actions_t child_fd_actions;
-  // posix_spawn_file_actions_init(&child_fd_actions);
-  // posix_spawn_file_actions_addopen(&child_fd_actions, 1, "/tmp/dumps/container-init.log", O_WRONLY | O_CREAT | O_TRUNC, 0644);
-  // posix_spawn_file_actions_adddup2(&child_fd_actions, 1, 2);
-  // if ((e = posix_spawn(&pid, ldconfig_argv[0], &child_fd_actions, NULL,
-  //                      (char *const *)ldconfig_argv, ldconfig_envp))) {
-  //   fprintf(stderr, "Failed to run ldconfig: %s\n", strerror(e));
-  //   return 1;
-  // }
-  //
-  // posix_spawn_file_actions_destroy(&child_fd_actions);
-  system("/bin/ldconfig");
+  int e;
+  pid_t pid;
+  const char *ldconfig_argv[] = {"/bin/ldconfig", NULL};
+  char *ldconfig_envp[] = {NULL};
+  posix_spawn_file_actions_t child_fd_actions;
+  posix_spawn_file_actions_init(&child_fd_actions);
+  posix_spawn_file_actions_addopen(&child_fd_actions, 1, "/tmp/dumps/container-init.log", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+  posix_spawn_file_actions_adddup2(&child_fd_actions, 1, 2);
+  if ((e = posix_spawn(&pid, ldconfig_argv[0], &child_fd_actions, NULL,
+                       (char *const *)ldconfig_argv, ldconfig_envp))) {
+    fprintf(stderr, "Failed to run ldconfig: %s\n", strerror(e));
+    return 1;
+  }
+
+  posix_spawn_file_actions_destroy(&child_fd_actions);
+
   system("ls -l /");
   system("ls -l /etc");
   system("file $(readlink /usr/bin/ldconfig)");
   system("cat $(readlink /usr/bin/ldconfig)");
 
-  // int status;
-  // if (waitpid(pid, &status, 0) == -1) {
-  //   perror("Failed to wait for ldconfig");
-  //   return 1;
-  // }
-  // if (WIFEXITED(status)) {
-  //   if (WEXITSTATUS(status)) {
-  //     fprintf(stderr, "ldconfig exited %d\n", WEXITSTATUS(status));
-  //     return 1;
-  //   }
-  // } else {
-  //   fprintf(stderr, "ldconfig killed by signal %d\n", WTERMSIG(status));
-  //   return 1;
-  // }
+  int status;
+  if (waitpid(pid, &status, 0) == -1) {
+    perror("Failed to wait for ldconfig");
+    return 1;
+  }
+  if (WIFEXITED(status)) {
+    if (WEXITSTATUS(status)) {
+      fprintf(stderr, "ldconfig exited %d\n", WEXITSTATUS(status));
+      return 1;
+    }
+  } else {
+    fprintf(stderr, "ldconfig killed by signal %d\n", WTERMSIG(status));
+    return 1;
+  }
 
   argv[0] = "/init";
   execv(argv[0], (char *const *)argv);
