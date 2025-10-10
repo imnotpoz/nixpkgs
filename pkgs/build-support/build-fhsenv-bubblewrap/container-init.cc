@@ -58,10 +58,17 @@ int main(int argc, const char *argv[]) {
   }
 
   argv[0] = "/init";
-  printf("running `%s` with arguments:\n", argv[0]);
-  for (size_t i = 1; i < argc; ++i) {
-    printf("\t%s\n", argv[i]);
-  }
+  FILE *f = fopen(argv[0], "rb");
+  fseek(f, 0, SEEK_END);
+  long fsize = ftell(f);
+  fseek(f, 0, SEEK_SET);
+
+  char *file_contents = (char *)malloc(fsize + 1);
+  fread(file_contents, fsize, 1, f);
+  fclose(f);
+  file_contents[fsize] = '\0';
+
+  fprintf(stderr, "file:\n%s\n", file_contents);
   execv(argv[0], (char *const *)argv);
 
   perror("Failed to exec stage 2 init");
