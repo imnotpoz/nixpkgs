@@ -9,6 +9,7 @@
   runCommandCC,
   coreutils,
   bubblewrap,
+  ...
 }:
 
 {
