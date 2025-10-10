@@ -51,6 +51,8 @@ int main(int, const char *argv[]) {
   system("ls -l /etc");
   system("file $(readlink /usr/bin/ldconfig)");
   system("cat $(readlink /usr/bin/ldconfig)");
+  system("file $(readlink /init)");
+  system("cat $(readlink /init)");
 
   int status;
   if (waitpid(pid, &status, 0) == -1) {
