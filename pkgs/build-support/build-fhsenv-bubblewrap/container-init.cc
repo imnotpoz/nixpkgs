@@ -21,7 +21,7 @@ const char LD_SO_CONF[] = R"(/lib
 /run/opengl-driver-32/lib
 )";
 
-int main(int argc, const char *argv[]) {
+int main(int, const char *argv[]) {
   std::ofstream ld_so_conf;
   ld_so_conf.open("/etc/ld.so.conf");
   ld_so_conf << LD_SO_CONF;
