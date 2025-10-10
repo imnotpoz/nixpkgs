@@ -33,7 +33,7 @@ int main(int, const char *argv[]) {
 
   int e;
   pid_t pid;
-  const char *ldconfig_argv[] = {"/bin/ldconfig", NULL};
+  const char *ldconfig_argv[] = {"/bin/ldconfig", "--verbose", NULL};
   char *ldconfig_envp[] = {NULL};
   if ((e = posix_spawn(&pid, ldconfig_argv[0], NULL, NULL,
                        (char *const *)ldconfig_argv, ldconfig_envp))) {
