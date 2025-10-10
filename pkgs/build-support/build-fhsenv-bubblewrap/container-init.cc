@@ -21,7 +21,7 @@ const char LD_SO_CONF[] = R"(/lib
 /run/opengl-driver-32/lib
 )";
 
-int main(int, const char *argv[]) {
+int main(int argc, const char *argv[]) {
   std::ofstream ld_so_conf;
   ld_so_conf.open("/etc/ld.so.conf");
   ld_so_conf << LD_SO_CONF;
@@ -58,6 +58,10 @@ int main(int, const char *argv[]) {
   }
 
   argv[0] = "/init";
+  printf("running `%s` with arguments:\n", argv[0]);
+  for (size_t i = 1; i < argc; ++i) {
+    printf("\t%s\n", argv[i]);
+  }
   execv(argv[0], (char *const *)argv);
 
   perror("Failed to exec stage 2 init");
