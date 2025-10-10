@@ -55,6 +55,7 @@ int main(int, const char *argv[]) {
   if (WIFEXITED(status)) {
     if (WEXITSTATUS(status)) {
       fprintf(stderr, "ldconfig exited %d\n", WEXITSTATUS(status));
+      system("ls -l /");
       return 1;
     }
   } else {
@@ -63,7 +64,6 @@ int main(int, const char *argv[]) {
   }
 
   argv[0] = "/init";
-  system("ls -l /");
   execv(argv[0], (char *const *)argv);
 
   perror("Failed to exec stage 2 init");
