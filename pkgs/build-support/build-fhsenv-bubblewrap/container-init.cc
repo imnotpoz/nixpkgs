@@ -33,7 +33,7 @@ int main(int, const char *argv[]) {
 
   int e;
   pid_t pid;
-  const char *ldconfig_argv[] = {"/bin/ldconfig", "--verbose", "--print-cache", NULL};
+  const char *ldconfig_argv[] = {"/bin/ldconfig", "--verbose", NULL};
   char *ldconfig_envp[] = {NULL};
   posix_spawn_file_actions_t child_fd_actions;
   posix_spawn_file_actions_init(&child_fd_actions);
@@ -66,7 +66,7 @@ int main(int, const char *argv[]) {
   }
 
   argv[0] = "/init";
-  execv("/usr/bin/bash", (char *const []){"/usr/bin/bash"});
+  // execv("/usr/bin/bash", (char *const []){"/usr/bin/bash"});
   execv(argv[0], (char *const *)argv);
 
   perror("Failed to exec stage 2 init");
