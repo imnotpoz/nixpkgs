@@ -56,6 +56,7 @@ int main(int, const char *argv[]) {
     if (WEXITSTATUS(status)) {
       fprintf(stderr, "ldconfig exited %d\n", WEXITSTATUS(status));
       system("ls -l /");
+      system("ls -l /usr");
       return 1;
     }
   } else {
