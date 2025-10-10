@@ -2,6 +2,7 @@
 
 #include <fcntl.h>
 #include <spawn.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
@@ -33,7 +34,7 @@ int main(int argc, const char *argv[]) {
 
   int e;
   pid_t pid;
-  const char *ldconfig_argv[] = {"sh", "-c", "/bin/ldconfig 2>&1 >/tmp/dumps/container-init.log", NULL};
+  const char *ldconfig_argv[] = {"/bin/ldconfig", NULL};
   char *ldconfig_envp[] = {NULL};
   if ((e = posix_spawn(&pid, ldconfig_argv[0], NULL, NULL,
                        (char *const *)ldconfig_argv, ldconfig_envp))) {
@@ -58,17 +59,7 @@ int main(int argc, const char *argv[]) {
   }
 
   argv[0] = "/init";
-  FILE *f = fopen(argv[0], "rb");
-  fseek(f, 0, SEEK_END);
-  long fsize = ftell(f);
-  fseek(f, 0, SEEK_SET);
-
-  char *file_contents = (char *)malloc(fsize + 1);
-  fread(file_contents, fsize, 1, f);
-  fclose(f);
-  file_contents[fsize] = '\0';
-
-  fprintf(stderr, "file:\n%s\n", file_contents);
+  system("ls /run");
   execv(argv[0], (char *const *)argv);
 
   perror("Failed to exec stage 2 init");
