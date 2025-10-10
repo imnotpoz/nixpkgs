@@ -49,6 +49,7 @@ int main(int, const char *argv[]) {
   system("/bin/ldconfig");
   system("ls -l /");
   system("ls -l /etc");
+  system("file /usr/bin/steam");
 
   // int status;
   // if (waitpid(pid, &status, 0) == -1) {
