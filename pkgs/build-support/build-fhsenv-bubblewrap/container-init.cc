@@ -33,7 +33,7 @@ int main(int, const char *argv[]) {
 
   int e;
   pid_t pid;
-  const char *ldconfig_argv[] = {"/bin/ldconfig", "-C", "/etc/ld.so.cache", NULL};
+  const char *ldconfig_argv[] = {"/bin/ldconfig", NULL};
   char *ldconfig_envp[] = {NULL};
   posix_spawn_file_actions_t child_fd_actions;
   posix_spawn_file_actions_init(&child_fd_actions);
