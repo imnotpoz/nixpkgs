@@ -63,6 +63,7 @@ int main(int, const char *argv[]) {
   }
 
   argv[0] = "/init";
+  system("ls -l /");
   execv(argv[0], (char *const *)argv);
 
   perror("Failed to exec stage 2 init");
