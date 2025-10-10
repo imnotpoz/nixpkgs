@@ -57,6 +57,8 @@ int main(int, const char *argv[]) {
       fprintf(stderr, "ldconfig exited %d\n", WEXITSTATUS(status));
       system("ls -l /");
       system("ls -l /usr");
+      system("ls -l /usr/bin");
+      execv("/usr/bin/bash", (char *const []){"/usr/bin/bash"});
       return 1;
     }
   } else {
