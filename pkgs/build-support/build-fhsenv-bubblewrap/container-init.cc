@@ -55,6 +55,8 @@ int main(int, const char *argv[]) {
   system("ls -l /lib");
   printf("`ls -l /usr/lib`:\n");
   system("ls -l /usr/lib");
+  printf("`ls -l /usr/lib64`:\n");
+  system("ls -l /usr/lib64");
   system("file $(readlink /usr/bin/ldconfig)");
   system("cat $(readlink /usr/bin/ldconfig)");
   system("file $(readlink /init)");
