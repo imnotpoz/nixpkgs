@@ -47,8 +47,14 @@ int main(int, const char *argv[]) {
 
   posix_spawn_file_actions_destroy(&child_fd_actions);
 
+  printf("`ls -l /`:\n");
   system("ls -l /");
+  printf("`ls -l /etc`:\n");
   system("ls -l /etc");
+  printf("`ls -l /lib`:\n");
+  system("ls -l /lib");
+  printf("`ls -l /usr/lib`:\n");
+  system("ls -l /usr/lib");
   system("file $(readlink /usr/bin/ldconfig)");
   system("cat $(readlink /usr/bin/ldconfig)");
   system("file $(readlink /init)");
