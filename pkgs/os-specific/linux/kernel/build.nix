@@ -326,12 +326,7 @@ lib.makeOverridable (
         fi
       done
 
-      patchShebangs scripts
-
-      # also patch arch-specific install scripts
-      for i in $(find arch -name install.sh); do
-          patchShebangs "$i"
-      done
+      patchShebangs .
 
       # unset $src because the build system tries to use it and spams a bunch of warnings
       # see: https://github.com/torvalds/linux/commit/b1992c3772e69a6fd0e3fc81cd4d2820c8b6eca0
