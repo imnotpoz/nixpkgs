@@ -129,7 +129,7 @@ let
           libtiff
           libudev0-shim
           libuuid
-          libv4l
+          v4l-utils.lib
           pango
           pcsclite
           pixman

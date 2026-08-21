@@ -17,7 +17,7 @@
   gnused,
 
   # Used by the bundled webcam-app
-  libv4l,
+  v4l-utils,
 
   # Used by the testing package bisq2-webcam-app
   callPackage,
@@ -66,7 +66,7 @@ let
 
   libraryPath = lib.makeLibraryPath [
     stdenv.cc.cc
-    libv4l
+    v4l-utils.lib
   ];
 in
 stdenv.mkDerivation (finalAttrs: {

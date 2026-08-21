@@ -26,7 +26,6 @@
   libusb1,
   libuv,
   libuvc,
-  libv4l,
   libxau,
   libxcb,
   libxdmcp,
@@ -44,6 +43,7 @@
   shaderc,
   tracy,
   udev,
+  v4l-utils,
   vulkan-headers,
   vulkan-loader,
   wayland,
@@ -118,7 +118,6 @@ stdenv.mkDerivation (finalAttrs: {
     libusb1
     libuv
     libuvc
-    libv4l
     libxau
     libxcb
     libxdmcp
@@ -132,6 +131,7 @@ stdenv.mkDerivation (finalAttrs: {
     SDL2
     shaderc
     udev
+    v4l-utils.lib
     vulkan-headers
     vulkan-loader
     wayland

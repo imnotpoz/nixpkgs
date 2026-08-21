@@ -6076,13 +6076,6 @@ with pkgs;
     else
       callPackage ../development/libraries/libunwind { };
 
-  libv4l = lowPrio (
-    v4l-utils.override {
-      withGUI = false;
-      withUtils = false;
-    }
-  );
-
   libva-minimal = callPackage ../development/libraries/libva { minimal = true; };
   libva = libva-minimal.override { minimal = false; };
   libva-utils = callPackage ../development/libraries/libva/utils.nix { };

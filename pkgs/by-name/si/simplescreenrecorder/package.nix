@@ -13,7 +13,7 @@
   libGL,
   pkg-config,
   libpulseaudio,
-  libv4l,
+  v4l-utils,
   pipewire,
   libsForQt5,
   cmake,
@@ -64,11 +64,11 @@ stdenv.mkDerivation {
     libGLU
     libGL
     libpulseaudio
-    libv4l
     pipewire
     libsForQt5.qtbase
     libsForQt5.qttools
     libsForQt5.qtx11extras
+    v4l-utils.lib
   ];
 
   passthru.updateScript = unstableGitUpdater { };

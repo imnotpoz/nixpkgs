@@ -14,7 +14,6 @@
   libGL,
   libGLU,
   libpulseaudio,
-  libv4l,
   libx11,
   libxdmcp,
   libxext,
@@ -33,6 +32,7 @@
   SDL2,
   spirv-tools,
   udev,
+  v4l-utils,
   vulkan-loader,
   wayland,
   wayland-scanner,
@@ -105,11 +105,11 @@ stdenv.mkDerivation (finalAttrs: {
     libxxf86vm
     libdrm
     libpulseaudio
-    libv4l
     libxkbcommon
     libgbm
     pipewire
     udev
+    v4l-utils.lib
   ];
 
   enableParallelBuilding = true;

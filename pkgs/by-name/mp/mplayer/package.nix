@@ -58,7 +58,7 @@
   bs2bSupport ? config.mplayer.bs2bSupport or false,
   libbs2b,
   v4lSupport ? config.mplayer.v4lSupport or false,
-  libv4l,
+  v4l-utils,
   # For screenshots
   libpngSupport ? config.mplayer.libpngSupport or true,
   libpng,
@@ -179,7 +179,7 @@ stdenv.mkDerivation (finalAttrs: {
   ++ lib.optional libpngSupport libpng
   ++ lib.optional libjpegSupport libjpeg
   ++ lib.optional bs2bSupport libbs2b
-  ++ lib.optional v4lSupport libv4l;
+  ++ lib.optional v4lSupport v4l-utils.lib;
 
   strictDeps = true;
 

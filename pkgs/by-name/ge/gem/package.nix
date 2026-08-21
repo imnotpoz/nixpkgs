@@ -9,7 +9,7 @@
   libGLU,
   glew,
   libglut,
-  libv4l,
+  v4l-utils,
   libx11,
   file,
 }:
@@ -38,7 +38,7 @@ stdenv.mkDerivation {
     libGLU
     glew
     libglut
-    libv4l
+    v4l-utils.lib
     libx11
   ];
 

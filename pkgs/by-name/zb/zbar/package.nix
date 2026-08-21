@@ -7,7 +7,7 @@
   pkg-config,
   withXorg ? true,
   libx11,
-  libv4l,
+  v4l-utils,
   libsForQt5,
   wrapGAppsHook3,
   gtk3,
@@ -92,7 +92,7 @@ stdenv.mkDerivation rec {
     libx11
   ]
   ++ lib.optionals enableVideo [
-    libv4l
+    v4l-utils.lib
     gtk3
     libsForQt5.qtbase
     libsForQt5.qtwayland

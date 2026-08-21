@@ -1,7 +1,7 @@
 {
   stdenv,
   buildPackages,
-  libv4l,
+  v4l-utils,
   fetchFromGitHub,
   fetchpatch,
   meson,
@@ -143,7 +143,7 @@ stdenv.mkDerivation (finalAttrs: {
     # For `libdisplay-info`
     python3
     hwdata
-    libv4l
+    v4l-utils.lib
   ];
 
   buildInputs = [

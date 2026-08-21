@@ -15,7 +15,7 @@
   librem,
   libsndfile,
   libuuid,
-  libv4l,
+  v4l-utils,
   libvpx,
   mpg123,
   openssl,
@@ -68,7 +68,6 @@ stdenv.mkDerivation (finalAttrs: {
     librem
     libsndfile
     libuuid
-    libv4l
     libvpx
     mpg123
     openssl
@@ -77,6 +76,7 @@ stdenv.mkDerivation (finalAttrs: {
     spandsp3
     speex
     srtp
+    v4l-utils.lib
     zlib
   ]
   ++ (with gst_all_1; [

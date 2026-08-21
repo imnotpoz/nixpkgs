@@ -12,7 +12,7 @@
   qtnetworkauth,
   kddockwidgets,
   qqc2-desktop-style,
-  libv4l,
+  v4l-utils,
   kio-extras,
   opentimelineio,
   frei0r,
@@ -50,7 +50,7 @@ mkKdeDerivation {
 
     ffmpeg-full
     ffmpegthumbs
-    libv4l
+    v4l-utils.lib
     mlt
     opentimelineio
   ];

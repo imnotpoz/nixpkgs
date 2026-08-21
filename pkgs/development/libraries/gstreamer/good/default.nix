@@ -14,7 +14,7 @@
   bzip2,
   gettext,
   libGL,
-  libv4l,
+  v4l-utils,
   libdv,
   libavc1394,
   libiec61883,
@@ -198,11 +198,11 @@ stdenv.mkDerivation (finalAttrs: {
   ++ lib.optionals stdenv.hostPlatform.isLinux [
     libdrm
     libGL
-    libv4l
     libpulseaudio
     libavc1394
     libiec61883
     libgudev
+    v4l-utils.lib
   ]
   ++ lib.optionals stdenv.hostPlatform.isDarwin [
     apple-sdk_gstreamer

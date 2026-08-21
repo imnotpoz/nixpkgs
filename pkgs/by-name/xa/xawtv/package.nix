@@ -10,7 +10,7 @@
   aalib,
   libxft,
   xorgproto,
-  libv4l,
+  v4l-utils,
   libfs,
   libxaw,
   libxpm,
@@ -51,7 +51,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxext
     libsm
     libice
-    libv4l
+    v4l-utils.lib
   ];
 
   makeFlags = [

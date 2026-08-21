@@ -9,7 +9,7 @@
   libpulseaudio,
   alsa-lib,
   hamlib,
-  libv4l,
+  v4l-utils,
   fftwFloat,
   imagemagick,
 }:
@@ -37,7 +37,7 @@ stdenv.mkDerivation (finalAttrs: {
     libpulseaudio
     alsa-lib
     hamlib
-    libv4l
+    v4l-utils.lib
     fftwFloat
   ];
 

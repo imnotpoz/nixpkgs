@@ -57,7 +57,7 @@
   libtheora,
   libtiger,
   libupnp,
-  libv4l,
+  v4l-utils,
   libva,
   libvorbis,
   libxml2,
@@ -180,7 +180,6 @@ stdenv.mkDerivation (finalAttrs: {
     libtheora
     libtiger
     libupnp
-    libv4l
     libva
     libvorbis
     libxml2
@@ -193,6 +192,7 @@ stdenv.mkDerivation (finalAttrs: {
     systemdLibs
     taglib_1
     libxcb-keysyms
+    v4l-utils.lib
     zlib
   ]
   ++ optionals (!onlyLibVLC) [ live555 ]
@@ -305,7 +305,7 @@ stdenv.mkDerivation (finalAttrs: {
   # should be the same as pkgsBuildBuild.qt5.qttranslations.
   postFixup = ''
     patchelf --add-rpath ${libaacs}/lib "$out/lib/vlc/plugins/access/liblibbluray_plugin.so"
-    patchelf --add-rpath ${libv4l}/lib "$out/lib/vlc/plugins/access/libv4l2_plugin.so"
+    patchelf --add-rpath ${v4l-utils.lib}/lib "$out/lib/vlc/plugins/access/v4l-utils2_plugin.so"
     find $out/lib/vlc/plugins -exec touch -d @1 '{}' ';'
     ${
       if stdenv.buildPlatform.canExecute stdenv.hostPlatform then "$out" else pkgsBuildBuild.libvlc

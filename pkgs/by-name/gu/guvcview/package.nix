@@ -11,7 +11,7 @@
   ffmpeg,
   udev,
   libusb1,
-  libv4l,
+  v4l-utils,
   alsa-lib,
   gsl,
   libpng,
@@ -48,7 +48,7 @@ stdenv.mkDerivation (finalAttrs: {
     alsa-lib
     ffmpeg
     libusb1
-    libv4l
+    v4l-utils.lib
     portaudio
     udev
     gsl

@@ -11,7 +11,7 @@
   ffmpeg_7,
   libopus,
   libuuid,
-  libv4l,
+  v4l-utils,
   libvpx,
   opencore-amr,
   openssl,
@@ -75,7 +75,7 @@ buildPythonPackage (finalAttrs: {
     ffmpeg_7
     libopus
     libuuid
-    libv4l
+    v4l-utils.lib
     libvpx
     opencore-amr
     openssl

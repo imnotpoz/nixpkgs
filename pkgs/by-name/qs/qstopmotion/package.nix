@@ -10,7 +10,7 @@
   gphoto2,
   libgphoto2,
   libsForQt5,
-  libv4l,
+  v4l-utils,
   libxml2,
   ninja,
   pkg-config,
@@ -39,7 +39,6 @@ stdenv.mkDerivation (finalAttrs: {
     gphoto2
     libgphoto2
     libsForQt5.wrapQtAppsHook
-    libv4l
     libxml2
     ninja
     pkg-config
@@ -56,7 +55,7 @@ stdenv.mkDerivation (finalAttrs: {
     libsForQt5.qtquickcontrols
     libsForQt5.qtxmlpatterns
     libsForQt5.qwt
-    libv4l
+    v4l-utils.lib
   ];
 
   postPatch = ''

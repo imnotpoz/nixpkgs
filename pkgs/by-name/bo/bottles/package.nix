@@ -84,7 +84,6 @@ let
         libtiff
         libunwind
         libusb1
-        libv4l
         libxml2
         mpg123
         ocl-icd
@@ -93,6 +92,7 @@ let
         sane-backends
         SDL2
         udev
+        v4l-utils.lib
         vulkan-loader
 
         # https://www.gloriouseggroll.tv/how-to-get-out-of-wine-dependency-hell/

@@ -181,7 +181,7 @@ stdenv.mkDerivation (
         ++ lib.optional cursesSupport pkgs.ncurses
         ++ lib.optional vaSupport pkgs.libva
         ++ lib.optional pcapSupport pkgs.libpcap
-        ++ lib.optional v4lSupport pkgs.libv4l
+        ++ lib.optional v4lSupport pkgs.v4l-utils.lib
         ++ lib.optional saneSupport pkgs.sane-backends
         ++ lib.optional gphoto2Support pkgs.libgphoto2
         ++ lib.optional krb5Support pkgs.libkrb5

@@ -18,7 +18,6 @@
   libmpcdec,
   libpulseaudio,
   libtheora,
-  libv4l,
   libvorbis,
   libxcb,
   ncurses,
@@ -26,6 +25,7 @@
   pkg-config,
   speex,
   stdenv,
+  v4l-utils,
   vcdimager,
   zlib,
 }:
@@ -73,13 +73,13 @@ stdenv.mkDerivation (finalAttrs: {
     libmpcdec
     libpulseaudio
     libtheora
-    libv4l
     libvorbis
     libxcb
     libxcb
     ncurses
     perl
     speex
+    v4l-utils.lib
     vcdimager
     zlib
   ];

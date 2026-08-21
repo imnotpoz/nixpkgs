@@ -2,7 +2,7 @@
   buildOctavePackage,
   lib,
   fetchFromGitHub,
-  libv4l,
+  v4l-utils,
   fltk,
   nix-update-script,
 }:
@@ -23,7 +23,7 @@ buildOctavePackage rec {
   ];
 
   propagatedBuildInputs = [
-    libv4l
+    v4l-utils.lib
   ];
 
   passthru.updateScript = nix-update-script {

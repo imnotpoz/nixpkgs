@@ -14,7 +14,7 @@
   libpng,
   libtiff,
   libusb1,
-  libv4l,
+  v4l-utils,
   net-snmp,
   curl,
   systemdLibs,
@@ -121,7 +121,7 @@ stdenv.mkDerivation (finalAttrs: {
   ]
   ++ lib.optionals stdenv.hostPlatform.isLinux [
     libieee1284
-    libv4l
+    v4l-utils.lib
     net-snmp
   ]
   ++ lib.optionals withSystemd [

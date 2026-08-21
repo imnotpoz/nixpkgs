@@ -21,7 +21,7 @@
   qtbase,
   qtsvg,
   speex,
-  libv4l,
+  v4l-utils,
   x264,
   curl,
   wayland,
@@ -131,7 +131,7 @@ stdenv.mkDerivation (finalAttrs: {
     ffmpeg
     jansson
     libjack2
-    libv4l
+    v4l-utils.lib
     libxkbcommon
     libpthread-stubs
     libxdmcp

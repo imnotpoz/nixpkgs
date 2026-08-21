@@ -13,7 +13,7 @@
   ninja,
   python3,
   hwdata,
-  libv4l,
+  v4l-utils,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -41,7 +41,7 @@ stdenv.mkDerivation (finalAttrs: {
   ]
   ++ lib.optionals (stdenv.hostPlatform.emulatorAvailable buildPackages) [
     # Only used for tests, which we cannot run without an emulator
-    libv4l
+    v4l-utils.lib
   ];
 
   postPatch = ''

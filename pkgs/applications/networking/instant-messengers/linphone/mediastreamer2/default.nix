@@ -11,7 +11,7 @@
   libopus,
   libpulseaudio,
   qt6Packages,
-  libv4l,
+  v4l-utils,
   libvpx,
   mkLinphoneDerivation,
   ortp,
@@ -52,7 +52,7 @@ mkLinphoneDerivation (finalAttrs: {
     libx11
     libxext
     libpulseaudio
-    libv4l
+    v4l-utils.lib
     speex
     srtp
     sqlite

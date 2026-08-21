@@ -218,7 +218,7 @@ buildFHSEnv {
       libusb1
       libpng
       libmpeg2
-      libv4l
+      v4l-utils.lib
       libjpeg
       libxkbcommon
       libass

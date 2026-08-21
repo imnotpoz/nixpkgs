@@ -23,7 +23,7 @@
   python3Packages,
   stdenv,
   texliveSmall,
-  libv4l,
+  v4l-utils,
   libpthread-stubs,
   zbar,
   zlib,
@@ -92,7 +92,7 @@ stdenv.mkDerivation (finalAttrs: {
   ]
   ++ lib.optionals stdenv.hostPlatform.isLinux [
     coin3d
-    libv4l
+    v4l-utils.lib
   ];
 
   doCheck = true;

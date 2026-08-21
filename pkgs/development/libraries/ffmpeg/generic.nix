@@ -309,7 +309,6 @@
   libssh,
   libtensorflow,
   libtheora,
-  libv4l,
   libva,
   libva-minimal,
   libvdpau,
@@ -348,6 +347,7 @@
   srt,
   svt-av1,
   uavs3d,
+  v4l-utils,
   vid-stab,
   vo-amrwbenc,
   vulkan-headers,
@@ -966,7 +966,7 @@ stdenv.mkDerivation (
       ++ optionals withTheora [ libtheora ]
       ++ optionals withTwolame [ twolame ]
       ++ optionals withUavs3d [ uavs3d ]
-      ++ optionals withV4l2 [ libv4l ]
+      ++ optionals withV4l2 [ v4l-utils.lib ]
       ++ optionals withVaapi [ (if withSmallDeps then libva else libva-minimal) ]
       ++ optionals withVdpau [ libvdpau ]
       ++ optionals withVidStab [ vid-stab ]

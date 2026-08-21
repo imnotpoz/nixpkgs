@@ -2,7 +2,7 @@
   lib,
   stdenv,
   fetchurl,
-  libv4l,
+  v4l-utils,
   gd,
 }:
 
@@ -16,7 +16,7 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   buildInputs = [
-    libv4l
+    v4l-utils.lib
     gd
   ];
 
