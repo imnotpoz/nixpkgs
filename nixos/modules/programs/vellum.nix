@@ -67,7 +67,9 @@ in
       after = [ "graphical-session.target" ];
       partOf = [ "graphical-session.target" ];
       wantedBy = [ "graphical-session.target" ];
-      restartTriggers = [ config.environment.etc."xdg/vellum/config.toml".source ];
+      restartTriggers = mkIf (cfg.settings != { }) [
+        config.environment.etc."xdg/vellum/config.toml".source
+      ];
       serviceConfig = {
         ExecStart = "${getExe cfg.package} ${cfg.extraOptions}";
         Restart = "on-failure";
